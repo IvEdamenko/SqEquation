@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <input type="text" id="input">
+    <input type="button" value="Go" onclick="go()">
+    <div id="output"></div>
+
+    <canvas id="canvas" height="300" width="300"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!this.parse = function(){
+    var chars = [];
+    var counter = 0;
+    var counter2 = 0;
+
+    var i = 0;
+    while(this.equation[i] != undefined){
+        chars[i] = [];
+        if(this.equation[i] != "x"){
+            chars[counter][counter2] = this.equation[i];
+            counter2++;
+        }
+        else{
+            counter++;
+            counter2 = 0;
+        }
+        i++;
+    }
+
+
+    var t;
+    for(var i = 0; i < chars.length; i++){
+        if(chars[i][0] == undefined)
+            delete chars[i];
+    }
+    chars.length = 3;
+
+    for(i = 0; i < 3; i++){
+        var temp = "";
+        var q = chars[i].length - 1;
+        for(var j = 0 ; j < q; j++){
+            temp += chars[i][j+1]
+        }
+        temp = parseInt(temp, 10);
+    
+        if(chars[i][0] == "-")
+            temp *= -1;
+        
+        switch(i){
+            case 0: this.a = temp;
+            break;
+            case 1: this.b = temp;
+            break;
+            case 2: this.c = temp;
+            break;
+        }
+    } 
+}
+>
